@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 public class Main  {
 //hahaha
     public static void main(String[] args){
-int x= 0 ;
+
         Gui g = new Gui();
         g.setSize(250,400);
         g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -80,7 +80,7 @@ public class Gui extends JFrame {
 
 
         JButton[] Operation = new JButton[12];
-        final String[] op = {"=", "/", "x", "-", "+", "ANS", "HIST","AC","new","o","w","l"};
+        final String[] op = {"=", "/", "x", "-", "+", "ANS", "HIST","AC","C","o","w","l"};
         for (int i = 0; i < op.length; i++) {
             Operation[i] = new JButton(op[i]);
             gbc.gridx = opconstraints[i][0];
@@ -123,14 +123,21 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "1");
                     JTresult.setText("1");
                     num1 = "1";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("1"));
 
                     num1 = num1.concat("1");
 
                     System.out.println("num is now " + num1);
 
-                    }
+                    } else{ JTresult.setText("1");
+                    num1 = "1";
+
+                }
+
+
                 }
             });
                     numberlist[2].addActionListener(new ActionListener() {
@@ -141,12 +148,17 @@ public class Gui extends JFrame {
                                 System.out.printf("num1 is %s%n", "2");
                                 JTresult.setText("2");
                                 num1 = "2";
-                            } else {
+                            } else if(!(sanswer == num1))
+
+                            {
                                 JTresult.setText(num1.concat("2"));
 
                                 num1 = num1.concat("2");
+
                                 System.out.println("num is now " + num1);
 
+                            } else{ JTresult.setText("2");
+                                num1 = "2";
 
                             }
                         }
@@ -164,12 +176,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "3");
                     JTresult.setText("3");
                     num1 = "3";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("3"));
 
                     num1 = num1.concat("3");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("3");
+                    num1 = "3";
 
                 }
             }
@@ -182,12 +199,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "4");
                     JTresult.setText("4");
                     num1 = "4";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("4"));
 
                     num1 = num1.concat("4");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("4");
+                    num1 = "4";
 
                 }
             }
@@ -200,12 +222,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "5");
                     JTresult.setText("5");
                     num1 = "5";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("5"));
 
                     num1 = num1.concat("5");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("5");
+                    num1 = "5";
 
                 }
             }
@@ -218,12 +245,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "6");
                     JTresult.setText("6");
                     num1 = "6";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("6"));
 
                     num1 = num1.concat("6");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("6");
+                    num1 = "6";
 
                 }
             }
@@ -236,12 +268,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "7");
                     JTresult.setText("7");
                     num1 = "7";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("7"));
 
                     num1 = num1.concat("7");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("7");
+                    num1 = "7";
 
                 }
             }
@@ -254,12 +291,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "8");
                     JTresult.setText("8");
                     num1 = "8";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("8"));
 
                     num1 = num1.concat("8");
+
                     System.out.println("num is now " + num1);
 
+                } else{ JTresult.setText("8");
+                    num1 = "8";
 
                 }
             }
@@ -272,12 +314,17 @@ public class Gui extends JFrame {
                     System.out.printf("num1 is %s%n", "9");
                     JTresult.setText("9");
                     num1 = "9";
-                } else {
+                } else if(!(sanswer == num1))
+
+                {
                     JTresult.setText(num1.concat("9"));
 
                     num1 = num1.concat("9");
-                    System.out.println("num is now " + num1.concat("9"));
 
+                    System.out.println("num is now " + num1);
+
+                } else{ JTresult.setText("9");
+                    num1 = "9";
 
                 }
             }
@@ -287,16 +334,24 @@ public class Gui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (num1 == "empty") {
-                  JOptionPane.showMessageDialog(null,"Enter a number please!");
-                } else {
-                    JTresult.setText(num1.concat("0"));
-
-                    num1 = num1.concat("0");
-                    System.out.println("num is now " + num1.concat("0"));
 
 
-                }
+                    if (num1 == "empty") {
+                        JOptionPane.showMessageDialog(null,"Enter a number please!");
+
+                    } else if(!(sanswer == num1))
+
+                    {
+                        JTresult.setText(num1.concat("0"));
+
+                        num1 = num1.concat("0");
+
+                        System.out.println("num is now " + num1);
+
+                    } else{ JTresult.setText("0");
+                        JOptionPane.showMessageDialog(null,"Enter a number please!");
+
+                    }
             }
         });
 //        final String[] op = {"=", "/", "x", "-", "+", "ANS", "HIST","AC","new","o","w","l"};
@@ -321,7 +376,7 @@ public class Gui extends JFrame {
 
 
                 }}});
-        //SUBTRAction
+        //Subtraction
 
         Operation[3].addActionListener(new ActionListener() {
             @Override
@@ -361,11 +416,42 @@ public class Gui extends JFrame {
 
 
                 }}});
+//HIST
+        Operation[6].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTresult.setText(sanswer);
+
+                }});
 
 
 
 
-        Operation[0].addActionListener(new ActionListener() {
+
+//AC Button done!
+        Operation[7].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                num1 = "empty";
+
+            num ="empty";
+            operator = 99;
+            JTresult.setText("");
+        }});
+//C button
+        Operation[8].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!num1.isEmpty())
+                num1 =num1.substring(0, num1.length() - 1);
+                JTresult.setText(num1);
+            }});
+
+
+
+
+//Equal button
+                Operation[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -380,6 +466,7 @@ public class Gui extends JFrame {
                 JTresult.setText(((sanswer)));
                     num1 = sanswer ;
                     operator = 99 ;
+
 
                 }else if (operator == 3) {
                         int ans = Integer.parseInt(num)-Integer.parseInt(num1);
@@ -396,8 +483,14 @@ public class Gui extends JFrame {
 
 
 
-        //adding Op action listener
 
 
-    }});}}
+    }});
+
+
+
+
+
+    }
+}
 
