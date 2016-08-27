@@ -93,13 +93,7 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
 
 
         }
-//        Operation[8] = new JButton("AC");
-//        gbc.gridx = opconstraints[8][0];
-//        gbc.gridy = opconstraints[8][1];
-//        gbc.gridwidth = 4;
-//        gbc.gridheight = opconstraints[8][3];
-//        gbc.insets = new Insets(2,2,2,2);
-//       add(Operation[8],gbc);
+
 
         JTresult = new JTextField();
         JTresult.setBorder(BorderFactory.createLineBorder(Color.black));
