@@ -15,12 +15,10 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
     public static String num;
     public static String sanswer;
     public static int operator = 99;
-    private JPanel content;
     private static final int WIDTH = 320;
     private static final int HEIGHT = 480;
     private GridBagLayout layout;
     private GridBagConstraints gbc;
-    private double answer;
 //x-cord,y-cord,width,height
     private int [][] numconstraints = new int[][]{
         {0,7,2,1},
@@ -82,8 +80,8 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
         }
 
 
-        JButton[] Operation = new JButton[12];
-        final String[] op = {"=", "/", "x", "-", "+", ".", "HIST","AC","C","o","w","l"};
+        JButton[] Operation = new JButton[9];
+        final String[] op = {"=", "/", "x", "-", "+", ".", "HIST","AC","C"};
         for (int i = 0; i < op.length; i++) {
             Operation[i] = new JButton(op[i]);
             gbc.gridx = opconstraints[i][0];
@@ -95,6 +93,13 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
 
 
         }
+//        Operation[8] = new JButton("AC");
+//        gbc.gridx = opconstraints[8][0];
+//        gbc.gridy = opconstraints[8][1];
+//        gbc.gridwidth = 4;
+//        gbc.gridheight = opconstraints[8][3];
+//        gbc.insets = new Insets(2,2,2,2);
+//       add(Operation[8],gbc);
 
         JTresult = new JTextField();
         JTresult.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -109,52 +114,60 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
 /// THIS IS FOR DIFFERNT MODES
 
 
-        JRadioButton mode = new JRadioButton("xy equation");
+        final JRadioButton mode = new JRadioButton("x+y");
+
+        mode.setFocusable(false);
+        mode.setVisible(true);
         mode.setBorder(BorderFactory.createLineBorder(Color.black));
         gbc.gridx = 0;
+        gbc.gridwidth=2;
         gbc.gridy = 1;
-        //gbc.gridheight = 1;
-        //gbc.gridwidth = 1;
         add(mode,gbc);
-        mode.addActionListener(new ActionListener() {
+        mode.addItemListener(new ItemListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
-                JFrame frame = new JFrame();
-                JButton but = new JButton();
-                frame.getContentPane().add(BorderLayout.EAST,but);
-                frame.setSize(300,300);
-                frame.setVisible(true);
-                
-//                Scanner sc = new Scanner(System.in);
-//                int x1 = sc.nextInt();
-//                int y1 = sc.nextInt();
-//                int rhs1= sc.nextInt();
-//                int x2 =sc.nextInt();
-//                int y2 = sc.nextInt();
-//                int rhs2= sc.nextInt();
-//                double[][] lhsArray = {{x1, y1,}, {x2, y2,}};
-//                double[] rhsArray = {rhs1, rhs2,};
-//                //Creating Matrix Objects with arrays
-//                Matrix lhs = new Matrix(lhsArray);
-//                Matrix rhs = new Matrix(rhsArray, 2);
-//                //Calculate Solved Matrix
-//                Matrix ans = lhs.solve(rhs);
-//                //Printing Answers
-//                System.out.println("x = " + Math.round(ans.get(0, 0)));
-//                System.out.println("y = " + Math.round(ans.get(1, 0)));
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() ==ItemEvent.SELECTED){
+                    Xy t = new Xy();
+                    JFrame frame = new JFrame();
+                    frame.setTitle("Simultaneous Equation solver");
+                    frame.setSize(500, 500);
+                    /// frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setVisible(true);
+                    frame.add(t);
+                    mode.setDisabledIcon(mode.getDisabledIcon());
+                }
             }
         });
 
-        JRadioButton mode2 = new JRadioButton("xyz equation");
-        mode.setBorder(BorderFactory.createLineBorder(Color.black));
-        gbc.gridx = 2;
-        gbc.gridy = 1;
-        //gbc.gridheight = 1;
-        //gbc.gridwidth = 1;
-        add(mode2,gbc);
 
-       // JRadioButton mode3= new JRadioButton("2 variable equation solver");
+        JRadioButton mode3 = new JRadioButton("Quadratic equation solver");
+
+        mode3.setFocusable(false);
+        mode3.setVisible(true);
+
+        mode3.setBorder(BorderFactory.createLineBorder(Color.black));
+        gbc.gridx = 2;
+        gbc.gridwidth =2;
+        gbc.gridy = 1;
+
+        add(mode3,gbc);
+
+
+        mode3.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() ==ItemEvent.SELECTED){
+                Quad q = new Quad();
+                JFrame frame1 = new JFrame();
+                frame1.setTitle("Quadratic Solver");
+                frame1.setSize(500, 500);
+                //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame1.setVisible(true);
+                frame1.add(q);}
+            }});
+
+
+
 
 
         //Addding Action Listener for each button
@@ -427,9 +440,9 @@ public class Gui extends JFrame implements ActionListener,KeyListener {
         Operation[6].setFocusable(false);
         Operation[7].setFocusable(false);
         Operation[8].setFocusable(false);
-        Operation[9].setFocusable(false);
-        Operation[10].setFocusable(false);
-        Operation[11].setFocusable(false);
+        //Operation[9].setFocusable(false);
+        //Operation[10].setFocusable(false);
+       // Operation[11].setFocusable(false);
 
         Operation[1].addActionListener(new ActionListener() {
             @Override
